@@ -1,0 +1,562 @@
+/*
+Theme Name: Vuecomponents
+Theme URI: http://wordpress.org/themes/twentythirteen
+Author: anitape
+Author URI: http://wordpress.org/
+Description: The 2013 theme for WordPress takes us back to the blog, featuring a full range of post formats, each displayed beautifully in their own unique way. Design details abound, starting with a vibrant color scheme and matching header images, beautiful typography and icons, and a flexible layout that looks great on any device, big or small.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: Vuetestit
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+:root {
+    --text-color: #424250;
+    --border-grey: #cdcdcd;
+    --theme-color: #ebe9f9;
+    --theme-color-light: #fcfbfe;
+    --theme-color-dark: #443f79;
+    --link-color: #a27b20;
+}
+
+
+/*--------------------*/
+/* MAIN ELEMENTS */
+/*--------------------*/
+
+h1 {   
+    font-family: 'Oleo Script', cursive;
+    font-size: 100px;
+    color: #000000;
+    line-height: 70px;  
+}
+
+h2 {    
+    font-family: 'Lora', serif;
+    font-size: 67px;
+    color: var(--text-color);
+}
+
+h3 {    
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    color: var(--text-color);
+}
+
+h4 {    
+    font-family: 'Lora', serif;
+    font-size: 27px;
+    color: var(--text-color);
+}
+
+h5 {    
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    color: var(--text-color);
+}
+
+h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+body {
+    font-family: 'PT Serif', serif;
+    background-color: var(--theme-color-light);
+}
+
+p {
+    font-size: 17px;
+}
+
+.heading-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+@media(max-width: 768px) {
+    h1 {
+        font-size: 120px;
+    }
+}
+
+/*--------------------*/
+/* MAIN COMPONENTS */
+/*--------------------*/
+
+.rectangle {
+    width: 100%;
+    height: 300px;
+    background: var(--theme-color);
+    position: absolute;
+    left: 0;
+}
+
+.team-container {
+    margin: 4% 6%;
+    min-height: 700px;
+}
+
+.top-bottom-margins {
+    margin: 4% 0% 12% 0%;
+}
+
+.header-margins {
+    margin: 50px 0 30px 0;
+}
+
+.subpage-header {
+    margin-bottom: 40px;
+}
+
+.recipe-image {
+    width: 100%;
+    object-fit: cover;
+    height: 370px;
+}
+
+.highlight-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.line-separator {
+    box-sizing: content-box;
+    display: inline-block;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    vertical-align: middle;
+    width: 2em;
+    color: #000000;
+}
+
+.line-separator:after {
+    background: var(--text-color);
+    content: "";
+    display: block;
+    height: 0.085em;
+    width: 100%;
+}
+
+.line-separator-xl:after {
+    height: 0.15em;
+}
+
+.recipe-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--link-color);
+    text-transform: uppercase;
+}
+
+.recipe-link:hover {
+    text-decoration: none;
+    color: var(--link-color);
+    border-bottom: 3px solid var(--link-color);   
+}
+
+.list-no-style li{
+    list-style-type: none;
+}
+
+.text-margin-bottom {
+    margin-bottom: 4px;
+}
+
+.sub-title-margin-bottom {
+    margin-bottom: 24px;
+}
+
+.single-page-margin-bottom {
+    margin-bottom: 15%;
+}
+
+/*--------------------*/
+/* MENU HEADER */
+/*--------------------*/
+
+.header-main {
+    background-color: var(--theme-color);
+    padding-bottom: 60px;
+}
+
+.header-title {
+    margin-top: 50px;
+}
+
+h2.secondary {
+    font-size: 14px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.header-some {
+    margin: 10px auto;
+}
+
+.nav {
+    padding-left:0;
+    margin-bottom:0;
+    list-style-type:none;
+}
+  
+.nav > li > a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    padding:10px 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.nav > li > a:hover, .nav > li > a:active {
+    text-decoration: underline var(--text-color) solid 2px;
+}
+
+i.fa {
+    color: var(--text-color);
+}
+
+.some {
+    display: flex;
+    flex-direction: row;
+}
+
+.some li {
+    padding:0px 10px;
+    line-height: 20px;
+    list-style-type:none;   
+}
+
+
+/*--------------------*/
+/* FRONT PAGE */
+/*--------------------*/
+
+.main-recipe-image {
+    height: 800px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-recipes-container {
+    gap: 10px;
+}
+
+.main-recipe-title {
+    font-size: 46px;
+    line-height: 56px;
+}
+
+.main-recipe-highlight-text {
+    font-size: 18px;
+}
+
+.service-info-image {
+    width: 600px;
+}
+
+.sliderImage {
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+}
+
+.row-gap {
+    gap: 30px;
+}
+
+.front-intro-text {
+    color: var(--text-color);
+}
+
+/*--------------------*/
+/* SLIDERs */
+/*--------------------*/
+
+.sliderImage {
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+}
+
+.slide-text {
+    position: absolute;
+    left: 10%;
+    bottom: 12%;
+    color: white;
+    font-size: 40px;
+    background-color: black;
+    padding: 5px 15px;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    height: 30px;
+    width: 30px;
+}
+
+.carousel-control-button-prev {
+    background-color: black;
+    padding: 7px 9px 7px 5px;
+    display: flex;
+    border-radius: 100%;
+}
+
+.carousel-control-button-next {
+    background-color: black;
+    padding: 7px 5px 7px 9px;
+    display: flex;
+    border-radius: 100%;
+}
+
+.carousel-control-button-front {
+    background-color: var(--text-color);
+}
+
+/*--------------------*/
+/* FOOD PAGE */
+/*--------------------*/
+
+.food-recipe-images {
+    width: 200px;
+    object-fit: cover;
+    height: 600px;
+}
+
+
+/*--------------------*/
+/* DROPDOWNS */
+/*--------------------*/
+
+.food-dropdown-menu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid lightgrey;
+    width: 100%;
+    padding: 10px 20px;
+    text-transform: capitalize;
+}
+
+.menu-dropdown {
+    margin: 50px;
+}
+
+.btn-category {
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+    border: 2px solid var(--border-grey);
+    background-color: white;
+    padding: 14px 53px 14px 20px;
+    font-size: 17px;
+    line-height: 27px;
+    width: 100%;
+}
+
+/*--------------------*/
+/* ARCHIVE */
+/*--------------------*/
+.margin-class {
+    margin-top: 15px;
+    margin-bottom: 45px;
+}
+
+/*--------------------*/
+/* SINGLE */
+/*--------------------*/
+
+.single-intro-text {
+    margin-bottom: 30px; 
+    font-size: 20px;
+}
+
+.single-title {
+    font-size: 50px;
+}
+
+.single-recipe-image {
+    width: 100%;
+    object-fit: cover;
+    height: 470px;
+    margin-bottom: 40px;
+}
+
+.nav-link.active {
+    background-color: var(--theme-color-light) !important;
+    border-bottom-color: var(--theme-color-light) !important;
+}
+
+.nav-tabs li a {
+    font-weight: 600;
+    font-size: 15px;
+    padding: 20px 15px;
+}
+
+.nav-tabs li a:hover {
+    text-decoration: none;
+}
+
+.single-line {
+    border-top: none;
+    border-bottom: 1px solid #dee2e6;
+    margin: 0 0 80px 0;
+}
+
+.recipe-info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.tab-table {
+    min-height: 600px;
+    border-right: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    padding: 60px;
+    margin-bottom: 64px;
+}
+
+.ingredient-list-icon {
+    padding-right: 16px;
+}
+
+.instruction-step {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.instruction-step-num {
+    background-color: var(--link-color);
+    color: white;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instruction-text {
+    margin-left: 32px;
+}
+
+.tab-title {
+    margin-bottom: 48px;
+}
+
+.recipe-taxonomy {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.recipe-taxonomy a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background-color: var(--link-color);
+    color: var(--theme-color-light);
+    padding: 6px 20px;    
+}
+
+.recipe-taxonomy a:hover {
+    background-color: var(--theme-color-dark);
+    text-decoration: none;
+}
+
+.recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.recipe-tags a {
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 17px;
+    text-decoration: underline;
+}
+
+.recipe-tags a:hover {
+    color: var(--link-color);
+}
+
+.action-heart-single {
+    position: absolute;
+    left: 0;
+    right: auto;
+}
+
+/*--------------------*/
+/* FOOTER */
+/*--------------------*/
+
+.footer-margins {
+    margin: 100px auto;
+}
+
+ul.footer-some {
+    padding-left: 0;
+}
+
+.footer-nav {
+    padding-left:0;
+    margin-bottom:0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;  
+}
+
+.footer-nav > li > a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-color);
+    padding:10px 15px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.footer-nav > li > a:hover {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.footer-menu {
+    margin: 40px 0 30px 0;
+}
+
+.footer-some li {
+    padding:0px 10px;
+    line-height: 20px;
+    list-style-type:none;   
+}
+
+.footer-some li a i {
+    color: var(--link-color);
+}
+
+.footer-some li a i:hover {
+    color: var(--text-color);
+}
