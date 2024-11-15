@@ -49,16 +49,18 @@
                         $taxonomies = get_object_taxonomies( 'food_recipes', 'objects' );
 
                         foreach( $taxonomies as $taxonomy ){
-                            echo $taxonomy->name;
-                        
-                            $terms = get_terms(array(
-                                'taxonomy' => $taxonomy->name,
-                                'hide_empty' => false,
-                            ));
-                        
-                            foreach( $terms as $term ){
-                                $term_link = get_term_link( $term );
-                                echo "<a class='dropdown-item' href='{$term_link}'>{$term->name}</a>";
+                            if ($taxonomy->name != "post_tag") {  
+                                echo $taxonomy->name;
+                            
+                                $terms = get_terms(array(
+                                    'taxonomy' => $taxonomy->name,
+                                    'hide_empty' => false,
+                                ));
+                            
+                                foreach( $terms as $term ){
+                                    $term_link = get_term_link( $term );
+                                    echo "<a class='dropdown-item' href='{$term_link}'>{$term->name}</a>";
+                                }
                             }
                         }
                     ?>

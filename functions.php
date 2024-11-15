@@ -49,14 +49,6 @@ function essential_scripts() {
     );
 
     wp_enqueue_script(
-        'vue-test',
-        get_template_directory_uri() . '/js/test.js',
-        ['vue'],
-        '0.1.0',
-        true
-    );
-
-    wp_enqueue_script(
         'slider',
         get_template_directory_uri() . '/js/slider.js',
         ['vue'],
@@ -67,14 +59,6 @@ function essential_scripts() {
     wp_enqueue_script(
         'dropdowns',
         get_template_directory_uri() . '/js/dropdowns.js',
-        ['vue'],
-        '0.1.0',
-        true
-    );
-
-    wp_enqueue_script(
-        'dropdown',
-        get_template_directory_uri() . '/js/dropdown.js',
         ['vue'],
         '0.1.0',
         true
