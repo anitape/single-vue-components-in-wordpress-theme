@@ -1,19 +1,38 @@
-<img alt="Dynamic element made with Vue in Wordpress theme" src="public/aliette-main.jpg"/>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h1>Creating single Vue components in WordPress theme without bundler</h1>
+        <title>Single Vue components in a WordPress theme</title>
+        <meta property="og:title" content="Single Vue components in a WordPress theme">
+        <meta property="og:locale" content="en_US">
+        <meta name="description" content="How to add single Vue components to a WordPress theme">
+    </head>
+    <body>
+        <div class="container-lg px-3 my-5 markdown-body">
 
-<p>The purpose of this repository is to demonstrate how to add single Vue elements to a WordPress theme. You don't need to use any bundler or to install NPM packages. Installing Vue using NPM is recommended for building larger Vue applications. 
-In such cases, a build tool must be installed along with the NPM packages to handle the application's bundling. 
-More information about <a href="https://github.com/anitape/vue-in-wordpress-theme/tree/master/frontend">developing a Wordpress theme with Vue and Vue CLI bundler you can find here</a>.</p>
+            <h1><a href="https://github.com/anitape/single-vue-components-in-wordpress-theme">Creating single Vue components in WordPress theme without bundler</a></h1>
 
-<p>For smaller dynamic features, Vue.js can be added to a WordPress theme using a <b>CDN</b> installation. In this approach, Vue components are added to JavaScript <b><i>.js</i></b> files instead of <b><i>.vue</i></b> files. 
-To manage Vue components, a <b><i>js</i></b> directory is created within the WordPress theme to store JavaScript files containing Vue code. It is advisable to organize the JavaScript files based on the functionalities being implemented. 
-For example, if the page includes three different features, such as a slider, a dropdown menu, and dynamic tabs, the <b><i>js</i></b> folder should contain three separate JavaScript files.</p>
+            <img alt="Dynamic element made with Vue in Wordpress theme" src="public/aliette-main.jpg"/>
 
-<h2>Adding necessary scripts</h2>
+            <h2>Creating single Vue components in WordPress theme without bundler</h2>
 
-<p>JavaScript scripts are added to WordPress using the wp_enqueue_script() function, which includes the CDN link in the functions.php file. Each JavaScript file must be linked to the WordPress theme through this function. 
-    When adding JavaScript files, the value true should be passed as the last argument in the wp_enqueue_script() function. 
-This places the JavaScript file in the footer, ensuring that Vue functionalities are executed only after the DOM tree has fully loaded.</p>
+            <p>The purpose of this repository is to demonstrate how to add single Vue elements to a WordPress theme. You don't need to use any bundler or to install NPM packages. Installing Vue using NPM is recommended for building larger Vue applications. 
+            In such cases, a build tool must be installed along with the NPM packages to handle the application's bundling. 
+            More information about <a href="https://github.com/anitape/vue-in-wordpress-theme/tree/master/frontend">developing a Wordpress theme with Vue and Vue CLI bundler you can find here</a>.</p>
 
-More information about <a href="https://github.com/anitape/single-vue-components-in-wordpress-theme">how to create single Vue components in WordPress theme you can find here</a>.</p>
+            <p>For smaller dynamic features, Vue.js can be added to a WordPress theme using a <b>CDN</b> installation. In this approach, Vue components are added to JavaScript <b><i>.js</i></b> files instead of <b><i>.vue</i></b> files. 
+            To manage Vue components, a <b><i>js</i></b> directory is created within the WordPress theme to store JavaScript files containing Vue code. It is advisable to organize the JavaScript files based on the functionalities being implemented. 
+            For example, if the page includes three different features, such as a slider, a dropdown menu, and dynamic tabs, the <b><i>js</i></b> folder should contain three separate JavaScript files.</p>
+
+            <h2>Adding necessary scripts</h2>
+
+            <p>JavaScript scripts are added to WordPress using the wp_enqueue_script() function, which includes the CDN link in the functions.php file. Each JavaScript file must be linked to the WordPress theme through this function. 
+                When adding JavaScript files, the value true should be passed as the last argument in the wp_enqueue_script() function. 
+            This places the JavaScript file in the footer, ensuring that Vue functionalities are executed only after the DOM tree has fully loaded.</p>
+
+            <p>More information about <a href="https://github.com/anitape/single-vue-components-in-wordpress-theme">how to create single Vue components in WordPress theme you can find here</a>.</p>
+        </div>
+    </body>
+</html>
