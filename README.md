@@ -1,10 +1,12 @@
-<img alt="Dynamic element made with Vue in Wordpress theme" src="public/aliette-main.png"/>
+<img alt="Dynamic element made with Vue in Wordpress theme" src="public/aliette-main.jpg"/>
 
 # Creating single Vue components in WordPress theme without bundler
 
-The purpose of this repository is to show how to add single Vue elements is WordPress theme. You don't need to use any bundler or to install any npm packets. Installing Vue using NPM is recommended for building larger Vue applications. In such cases, a build tool must be installed along with the NPM packages to handle the application's bundling. Bu
+The purpose of this repository is to demonstrate how to add single Vue elements to a WordPress theme. You don't need to use any bundler or to install NPM packages. Installing Vue using NPM is recommended for building larger Vue applications. In such cases, a build tool must be installed along with the NPM packages to handle the application's bundling. More information about <a href="https://github.com/anitape/vue-in-wordpress-theme/tree/master/frontend">developing a Wordpress theme with Vue and Vue CLI bundler you can find here</a>.
 
-For smaller dynamic features, Vue.js can be added to a WordPress theme using a CDN installation.
+For smaller dynamic features, Vue.js can be added to a WordPress theme using a <b>CDN</b> installation. In this approach, Vue components are added to JavaScript <b><i>.js</i></b> files instead of <b><i>.vue</i></b> files. To manage Vue components, a <b><i>js</i></b> directory is created within the WordPress theme to store JavaScript files containing Vue code. It is advisable to organize the JavaScript files based on the functionalities being implemented. For example, if the page includes three different features, such as a slider, a dropdown menu, and dynamic tabs, the <b><i>js</i></b> folder should contain three separate JavaScript files.
+
+Below is an instruction how to add Vue components to a WordPress theme using only CDN and JavaScript.
 
 
 <b>Table of contents</b>
@@ -18,9 +20,10 @@ For smaller dynamic features, Vue.js can be added to a WordPress theme using a C
 
 ## 1. Adding necessary scripts
 
-JavaScript scripts are added to WordPress with the wp_enqueue_script() function, meaning the CDN link is included in the wp_enqueue_script() function in the functions.php file
+JavaScript scripts are added to WordPress using the ```wp_enqueue_script()``` function, which includes the <b>CDN link</b> in the <b><i>functions.php</i></b> file. Each JavaScript file must be linked to the WordPress theme through this function. Below is an example of how to add these files to a WordPress theme. When adding JavaScript files, the value ```true``` should be passed as the last argument in the ```wp_enqueue_script()``` function. This places the JavaScript file in the footer, ensuring that Vue functionalities are executed only after the DOM tree has fully loaded.
 
-<b>funtions.php</b>
+
+<b>functions.php</b>
 
 ```
 function essential_scripts() {
@@ -58,10 +61,14 @@ function essential_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'essential_scripts');
-
 ```
 
+
+
 ## 2. Dropdown element
+
+The example code below demonstrates a Vue component that manages the visibility of a dropdown menu. This Vue component includes an ```isVisible``` variable and a ```makeVisible``` function. The initial state of the ```isVisible``` variable is ```hidden```, meaning the dropdown menu is hidden. The ```makeVisible``` function toggles the state to show or hide the menu as needed. The entire Vue component is wrapped inside a self-executing function. This Vue component is mounted to an HTML element with the <b><i>ID</i></b> ```#my-first-dropdown```.
+
 
 <b>dropdown.js</b>
 
@@ -85,8 +92,11 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
             }
         }).mount('#my-first-dropdown')
 })();
-
 ```
+
+
+The same Vue components can be reused across multiple parts of a WordPress theme. For instance, if a WordPress theme contains multiple dropdown menus, a single Vue component can manage them all. In such cases, all main elements of the dropdown menus must share the same class. In this example, the <b><i>class</i></b> ```.menu-dropdown``` is used to enable the dropdown functionality. The dropdown menus are selected using the ```querySelectorAll()``` method, and each selected element is iterated over with the ```forEach()``` method. The example code below illustrates how these methods are used within a Vue component. 
+
 
 <b>dropdowns.js</b>
 
@@ -112,8 +122,11 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
         }).mount(element)
     })
 })();
-
 ```
+
+
+The example below demonstrates the HTML structure of a dropdown menu, where the main element has the <b><i>class</i></b> ```.menu-dropdown```. The dropdown menu's header is controlled by a button that includes the ```v-on``` directive, triggering the ```makeVisible()``` function when clicked. The dropdown menu content is contained within a ```div``` element with the <b><i>class</i></b> ```.food-dropdown-menu```. This ```div``` element also features a dynamic visibility style property, which is bound to the ```isVisible``` variable.
+
 
 <b>archive-food_recipes.php, archive-drinks.php, taxonomy-course.php, taxonomy-drink_types.php, taxonomy-occasion_drinks.php, taxonomy-occasion.php, taxonomy-season.php</b>
 
@@ -144,13 +157,21 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
         </div>
     </div>
 </div>
-
 ```
+
+
+Below you can see how the dropdown menu functions in practice.
 
 <img alt="Dropdown element made with Vue in Wordpress theme" src="public/dropdown-element.gif"/>
 
 
+
 ## 3. Slider element
+
+The example code below demonstrates a Vue component named <b><i>MSlider</i></b>, which manages the functionality of an image carousel and is located in the <b><i>slider.js</i></b> file. The component's state includes two variables: ```activeImage``` and ```totalImages```. The ```setTotalImages()``` function receives the total number of images in the carousel as a parameter and updates the component accordingly. The ```setActiveImage()``` function takes a parameter representing the image number, defined in a PHP file, and assigns its value to the ```activeImage``` variable. The Vue component is mounted to an HTML element with the <b><i>ID</i></b> ```#slider```.
+
+The Advanced Custom Fields (ACF) plugin is used to store the carousel images in this theme.
+
 
 <b>slider.js</b>
 
@@ -203,6 +224,10 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
 })();
 ```
 
+
+The example code below demonstrates the HTML structure of an image carousel located in the <b><i>page-about.php</i></b> file of a WordPress theme. The slider is contained within an HTML element with the <b><i>ID</i></b> ```#slider```. In the third ```div``` element, Vue's ```v-bind``` directive is used to enable the ```setTotalImages()``` function to pass the total number of images in the carousel as a parameter to the Vue component. Variable ```activeImage``` is updated within a ```for()``` loop based on the loop's index.
+
+
 <b>page-about.php</b>
 
 ```
@@ -239,10 +264,17 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
 </div>
 ```
 
+
+Below, you can see how the theme's slider works in practice.
+
 <img alt="Slider element made with Vue in Wordpress theme" src="public/slider-element.gif"/>
 
 
+
 ## 4. Tab element
+
+The example code below demonstrates a Vue component named MTabs, which manages the functionality of dynamic tabs and is located in <b><i>tabs.js</i></b> file. The component includes a single state variable, which is ```tabIndex```. The Vue component is mounted on an HTML element with the <b><i>ID</i></b> ```#tabcomponent```.
+
 
 <b>tabs.js</b>
 
@@ -261,7 +293,11 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
 })();
 ```
 
-<b>single-food_recipes</b>
+
+The example code below shows the HTML structure for dynamic tabs in the <b><i>single-food_recipes.php</i></b> file. The dynamic tabs are contained within an HTML element with the <b><i>ID</i></b> ```#tabcomponent```. Clicking on the ```li``` elements updates ```tabIndex``` variable.
+
+
+<b>single-food_recipes.php</b>
 
 ```
 <div class="mt-5" id="tab-component">
@@ -333,6 +369,9 @@ add_action('wp_enqueue_scripts', 'essential_scripts');
     </div>
 </div>
 ```
+
+
+Below, you can see how the dynamic tabs function in practice.
 
 <img alt="Tab element made with Vue in Wordpress theme" src="public/tab-element.gif"/>
 
